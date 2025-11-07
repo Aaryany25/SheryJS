@@ -69,7 +69,7 @@ main.addEventListener("click",function(){
     })
 }
 InfineTextAnimation()
-function LoadingAnimation(){
+function Counter(){
 let counter = document.querySelector("#counter")
 let count = 0
 setInterval(function(){
@@ -78,46 +78,49 @@ if(count<=100){
 }else{
     count =100
 }
-gsap.to("#counter",{
-    opacity: 1 + count / 100,
-})
-},30)
-// const tl = gsap.timeline()
-// tl.to("#loader",{
-//     delay:4,
-//     duration:2,
-//     y:-1200, 
-//     onComplete:function(){
-//         document.querySelector("#loader").style.display="none"
-//     }
-// },"first")
-// .from("#back",{
-//     opacity:0
-// },"first")
-// .from("#front",{
-//     opacity:0,
-//     stagger:0.2
-// })
-const tl = gsap.timeline();
 
-tl.to("#loader", {
-    delay: 5,          // reduce delay if needed
-    duration: 1.5,
-    y: "-100%",        // more responsive than -1200px
-    ease: "power2.inOut",
+},30)
+}
+function LoadingAnimation(){
+const tl = gsap.timeline()
+tl.to("#loader",{
+    delay:4,
+    duration:2,
+    y:-1200, 
+    onComplete:function(){
+        document.querySelector("#loader").style.display="none"
+    }
+},"first")
+.from("#back",{
+    opacity:0
+},"first")
+.from("#front",{
+    opacity:0,
+    stagger:0.2
 })
-.set("#loader", { display: "none" }) // hide after animation
-.from("#back", {
-    opacity: 0,
-    duration: 1,
-    ease: "power2.out",
-})
-.from("#front", {
-    opacity: 0,
-    duration: 1,
-    stagger: 0.2,
-    ease: "power2.out",
-});
+// const tl = gsap.timeline();
+
+// tl.to("#loader", {
+//     delay:4, 
+//     duration: 1.5,
+//     y: "-100%",        // more responsive than -1200px
+//     ease: "power2.inOut",
+//     onStart:Counter(),
+
+// })
+// .set("#loader", { display: "none" }) // hide after animation
+// // .from("#back", {
+// //     // y:"100%",
+// //     // opacity: 0,
+// //     // duration: 2,
+// //     // ease: "power2.out",
+// // })
+// .from("#front", {
+//     opacity: 0,
+//     duration: 1,
+//     stagger: 0.2,
+//     ease: "power2.out",
+// });
 
 }
 LoadingAnimation()
